@@ -1,0 +1,3 @@
+[submodule "hooks.d/dns-manual"]
+	path = hooks.d/dns-manual
+	url = https://github.com/BCurrell/dehydrated-dns-manual.git

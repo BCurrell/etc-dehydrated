@@ -1,0 +1,1 @@
+See https://github.com/dehydrated-io/dehydrated/blob/master/docs/domains_txt.md

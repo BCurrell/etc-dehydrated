@@ -1,0 +1,107 @@
+###
+#  Base Config
+###
+
+# User to run dehydrated as. Default: 
+DEHYDRATED_USER="root"
+
+# Group to run dehydrated as. Requires DEHYDRATED_USER to be set. Default: 
+DEHYDRATED_GROUP="${DEHYDRATED_USER}"
+
+# IPvX version to resolve names to addresses with curl. Default:
+#IP_VERSION=
+
+# Path to dehydrated base directory. Default: $SCRIPTDIR
+BASEDIR="/etc/dehydrated"
+
+# Path to dehydrated accounts registration directory. Default: $BASEDIR/accounts
+ACCOUNTDIR="${BASEDIR}/accounts.d"
+
+# Path to dehydrated certificate output directory. Default: $BASEDIR/certs
+CERTDIR="${BASEDIR}/certs.d"
+
+# Path to dehydrated chain cache directory. Default: $BASEDIR/chains
+CHAINCACHE="${BASEDIR}/chains.d"
+
+# Path to dehydrated config directory. Sources .sh files. Default:
+CONFIG_D="${BASEDIR}/conf.d"
+
+# Path to dehydrated domain-specific config directory. Default:
+DOMAINS_D="${BASEDIR}/domains.d"
+
+# Path to dehydrated domain list. Default: $BASEDIR/domains.txt
+DOMAINS_TXT="${BASEDIR}/domains.txt"
+
+# Path to dehydrated lockfile. Default: $BASEDIR/lock
+#LOCKFILE="${BASEDIR}/lock"
+
+# Path to dehydrated challenge-token output directory. Serve this directory in webserver configuration for http-01 verification. Default: /var/www/dehydrated
+WELLKNOWN="/var/www/dehydrated"
+
+# Automatic certificate cleanup. Default: no
+AUTO_CLEANUP="yes"
+
+###
+#  Misc Config
+###
+
+# Which public key algorithm should be used? Supported: rsa, prime256v1, secp384r1. Default: rsa
+#KEY_ALGO=rsa
+
+# Default keysize for private keys. Default: 4096
+KEYSIZE="4096"
+
+# Path to openssl config file. Default:
+#OPENSSL_CNF=
+
+# Path to OpenSSL binary. Default: openssl
+#OPENSSL="openssl"
+
+# Extra options passed to the curl binary. Default:
+#CURL_OPTS=
+
+###
+#  ACME Config
+###
+
+# Path to certificate authority. Default: https://acme-v02.api.letsencrypt.org/directory
+#CA="https://acme-v02.api.letsencrypt.org/directory"
+
+# ACME API version. Default: auto
+#API=auto
+
+# E-mail to use during the registration. Default:
+#CONTACT_EMAIL=
+
+# Option to add CSR-flag indicating OCSP stapling to be mandatory. Default: no
+OCSP_MUST_STAPLE="yes"
+
+# Fetch OCSP responses. Default: no
+OCSP_FETCH="yes"
+
+###
+#  Default Renewal Config
+###
+
+# ACME challenge type to use for verification. Supported: http-01, dns-01. Default: http-01
+CHALLENGETYPE="dns-01"
+
+# Path to hook script to run. Default: 
+# After generating the challenge-response, or after failed challenge (in this case altname is empty)
+# Given arguments: clean_challenge|deploy_challenge altname token-filename token-content
+#
+# After successfully signing certificate
+# Given arguments: deploy_cert domain path/to/privkey.pem path/to/cert.pem path/to/fullchain.pem
+HOOK="${BASEDIR}/hooks.d/dns-manual/hook.sh"
+
+# See https://github.com/dehydrated-io/dehydrated/blob/master/docs/hook_chain.md. Default: no
+#HOOK_CHAIN="no"
+
+# Minimum days before expiration to automatically renew certificate Default: 30
+#RENEW_DAYS="30"
+
+# Regenerate private keys instead of just signing new certificates on renewal Default: yes
+#PRIVATE_KEY_RENEW="yes"
+
+# Create an extra private key for rollover Default: no
+#PRIVATE_KEY_ROLLOVER="no"
