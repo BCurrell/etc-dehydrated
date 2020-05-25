@@ -3,7 +3,7 @@
 ###
 
 # User to run dehydrated as. Default: 
-DEHYDRATED_USER="root"
+DEHYDRATED_USER="dehydrated"
 
 # Group to run dehydrated as. Requires DEHYDRATED_USER to be set. Default: 
 DEHYDRATED_GROUP="${DEHYDRATED_USER}"
